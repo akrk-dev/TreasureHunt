@@ -1,0 +1,75 @@
+<ion-side-menus enable-menu-with-back-views='true'>
+<ion-side-menu-content>
+<ion-nav-bar class="bar-dark">
+<ion-nav-title style="font-family:'jura';font-weight: bold;">
+      SHERLOCK
+   </ion-nav-title>
+<ion-nav-buttons side="left">
+<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+</ion-nav-buttons>
+</ion-nav-bar>
+<ion-nav-view name="viewContent" animation="slide-left-right">
+</ion-nav-view>
+</ion-side-menu-content>
+<ion-side-menu side="left" class="menu">
+<ion-header-bar menu-close nav-direction="enter" nav-clear>
+<ion-item class="item item-thumbnail-left"><img src="img/logo.png" alt="Fry" class="animated">
+<h2>Sherlock</h2><p>Finding Pinky;)</p>
+</ion-item>
+</ion-header-bar>
+<ion-content class="has-header">
+<ion-list>
+<ion-item ng-repeat="item in items" menu-close nav-direction="enter" ng-click="item.onclick()" class="item item-icon-left item-icon-right" ui-sref-active="active" style="color:white;">
+<i class="icon {{item.icon}}"></i> {{item.title}}  <i class="icon ion-chevron-right"></i></ion-item>
+</ion-list></ion-content>
+<ion-footer-bar class="bar-light"><div class="button-bar"><button class="button button-icon icon ion-log-out" nav-clear menu-close nav-direction="exit" ui-sref="login">Exit</button>
+</div>
+</ion-footer-bar>
+</ion-side-menu>
+</ion-side-menus>
+<script id="story.html" type="text/ng-template">
+<ion-modal-view class="usersModal bigModal">
+<ion-header-bar>
+<h1 class="title">Case Story</h1>
+<button class="button button-dark icon ion-close-round" ng-click="closeModal();"></button></ion-header-bar>
+<ion-content>
+	<img ng-src="img/story.JPG" class="fullscreen-image"/>
+</ion-content>
+</ion-modal-view>
+</script>
+<script id="clues.html" type="text/ng-template">
+<ion-modal-view class="usersModal bigModal">
+<ion-header-bar>
+<h1 class="title">Clues Unlocked</h1>
+<button class="button button-dark icon ion-close-round" ng-click="closeModal();"></button></ion-header-bar>
+<ion-content>
+<div class="row row-wrap row-no-padding">
+				<div class="card col col-40"  ng-if="clue.round<=curUser.round" ng-repeat="clue in clues" ng-click="open(clue)">
+						<div class="item">
+									<h2>Clue #{{clue.round}}</h2>
+						</div>
+						<div class="item item-body">
+									<img ng-src="{{clue.clue}}" style="width:100%;height:100%;">
+						</div>
+			</div>
+	</div>
+	</ion-content>
+	</ion-modal-view>
+</script>
+<script id="help.html" type="text/ng-template">
+<ion-modal-view class="usersModal bigModal">
+<ion-header-bar>
+<h1 class="title">Self Help</h1>
+<button class="button button-dark icon ion-close-round" ng-click="closeModal();"></button></ion-header-bar>
+<ion-content>
+<ion-slides  options="options" slider="data.slider">
+<ion-slide-page>
+<div class="box"><img ng-src="img/help1.JPG" class="fullscreen-image"/></div>
+</ion-slide-page>
+<ion-slide-page>
+<div class="box"><img ng-src="img/help2.JPG" class="fullscreen-image"/></div>
+</ion-slide-page>
+</ion-slides>
+</ion-content>
+</ion-modal-view>
+</script>

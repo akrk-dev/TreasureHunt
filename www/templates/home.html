@@ -1,0 +1,23 @@
+<ion-view view-title="" class="homeView">
+<ion-content ng-show="!!qn.round">
+<ion-list>
+<div class="list card animated fadeInTop ">
+	<div class="item">
+		<h1><span ng-if="qn.type=='final'">The Final </span>Clue #{{qn.round}} </h1>
+		<p ng-switch="qn.type">
+			<i class="icon ion-ios-timer" ng-switch-when="final"> Tips: Its time to find where?</i>
+			<i class="icon ion-images" ng-switch-when="img"> Tips:  Keep some distance while scanning.</i>
+			<i class="icon ion-android-pin" ng-switch-when="geo"> Tips: Turn on GPS before opening Cam</i>
+			<i class="icon ion-load-d" ng-switch-default="">Loading..</i>
+		</div>
+		<div class="item item-body"">
+			<img style="background-color: #9b3430" class="full-image" ng-src="{{qn.clue}}" src="img/gears.gif">
+		</div>
+		<a class="item item-icon-left assertive" ng-if="qn.type && qn.type!='final'" style="color:#3dbec9" ng-click="loadAR(qn.path)" ng-disabled="!enabled">
+			<i class="icon" ng-class="enabled?'ion-android-camera':'ion-load-a'"></i>
+			Click to Launch AR
+		</a>
+	</div>
+	</ion-list>
+	</ion-content>
+	</ion-view>

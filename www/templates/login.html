@@ -1,0 +1,37 @@
+<ion-view class="loginView1" view-title="Home" hide-nav-bar="true">
+    <ion-content>
+        <div class="row row-center" style="height:100%">
+            <div class="col col-center text-center" style="padding-top:50%">
+                <h1 class="animated bounceInDown">I AM</h1>
+                <!-- <div id="container" class="animated bounceInLeft">
+                    <div id="bender"><span class="eyes"><span class="shadow-eyes"></span> <span class="eyesInner"><span class="eyes-left"><span class="shadow-eyeInner"></span> <span class="eyelids-left"></span> <span class="iris-left"></span> </span><span class="eyes-right"><span class="shadow-eyeInner"></span> <span class="iris-right"></span> </span><span class="eyelids-right"></span> </span>
+                        </span><span class="mouth"><span class="shadow-mouth"></span>
+                        <ul class="grid-hor">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class="grid-ver">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        </span>
+                    </div>
+                </div> -->
+                <form name="myForm" novalidate>
+                    <label class="item item-input">
+                        <input type="text" style="text-align: center; font-size:2em; height:1em;" placeholder="Name" ng-model="myForm.uname" required>
+                    </label>
+                    <h1 class="animated bounceInDown" on-tap="HelloWorld()">LOCKED</h1>
+                    <div class="padding">
+                        <p style="color:#ff0033" ng-show="myForm.uname.$error.required && myForm.uname.$invalid && !myForm.uname.$pristine">* Username must be an email address</p>
+                        <p style="color:#ff0033" ng-show="!!wrongUserMsg">{{wrongUserMsg}}</p>
+                    </div>
+                    <button class="button  button-block button-light animated bounceInUp" ng-click="signIn(myForm.uname)"  ng-disabled="myForm.$invalid">Unlock <i class="icon ion-unlocked" ng-if="!loading"></i><i class="icon  ion-load-a" ng-if="loading"></i></button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-modal-view class="usersModal bigModal">
+<ion-header-bar>
+<h1 class="title">Team {{curUser.team}}</h1>
+<button class="button button-dark icon ion-close-round" ng-click="closeModal();"></button></ion-header-bar>
+<ion-content>
+<ion-list can-swipe="true"><ion-item ng-repeat="user in users  | orderBy :['-active','-round'] | filter :{ team : curUser.team}" class="animate-item">
+<div class="row">
+	<div class="col col-40" style="text-align: left">
+		{{user.$id}}
+	</div>
+	<div class="col col-40 col-offset-20" style="text-align: right">
+		<p class="button icon icon-right button-small" ng-class="user.active ? 'button-balanced' : 'button-assertive' ">{{user.round || 0}}</p>
+	</div>
+</div>
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-modal-view>

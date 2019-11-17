@@ -1,0 +1,25 @@
+.info {
+	font-size: large;
+	position: absolute;
+	width: 100%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background-color: #f8d107;
+	color:#fff;
+	font-weight: bold;
+	text-align: center;
+	top: 0;
+	left: 0;
+	opacity: 0.9;
+	display: table;
+}
+
+@font-face {
+  font-family: 'rotulona';
+  src:  url('../fonts/Rotulona-Hand-FFP-font.ttf') format('truetype');
+}
+
+.clue{
+	font-family: 'rotulona';
+	color: #405974;
+}

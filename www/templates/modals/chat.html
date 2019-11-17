@@ -1,0 +1,35 @@
+<ion-modal-view class="usersModal bigModal">
+<ion-header-bar>
+<h1 class="title">Team {{curUser.team}}</h1>
+<button class="button button-dark icon ion-close-round" ng-click="closeModal();"></button></ion-header-bar>
+<ion-content>
+<ion-pane class="messaging-view" style="background: -webkit-linear-gradient(330deg, #17bebb, #f0a6ca);
+  background: linear-gradient(120deg, #17bebb, #f0a6ca);
+  overflow: hidden;">
+<ion-content id="chat-view" class="content-stable" style="padding-right: 5px;padding-left: 5px;">
+<div ng-repeat="message in messages" autofocus="{{$last?'true':'false'}}" title="{{message.time}}">
+  <div class="button button-block animated bounceInUp" style="line-height: 30px; background: rgba(255, 255, 255, 0.2); color:#fff" 
+    ng-style="message.from != curUser.$id ? {'float':'left'} :{'float':'right'}"
+    class="messages">
+    <div style="text-transform: capitalize;font-weight:bold;text-align:left;color:#fff">
+        {{ message.from != curUser.$id ? message.from : 'You'}}
+    </div>
+    <div>
+      <p ng-style="message.from != curUser.$id ? {'text-align':'left'} :{'text-align':'right'}">{{ message.body}}</p>
+    </div>
+  </div>
+</div>
+</ion-content>
+<form>
+<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+<label class="item-input-wrapper">
+  <input type="text" placeholder="Type your message" ng-enter="sendMessage();" on-return="sendMessage();" ng-model="data.message" />
+</label>
+<button type="submit" class="button button-clear" ng-click="sendMessage()">
+Send
+</button>
+</ion-footer-bar>
+</form>
+</ion-pane>
+</ion-content>
+</ion-modal-view>
