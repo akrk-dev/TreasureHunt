@@ -554,6 +554,7 @@ angular.module('App', ['ionic', 'ngCordova', 'ngAnimate', "firebase"])
             if (curUser && !curUser.active) {
                 $state.go('login');
             }
+            console.log('test)
             var round = $stateParams.round;
             if (round == null || isNaN(round)) {
                 var round = round || $authService.getActiveRound() || curUser.round || 1;
